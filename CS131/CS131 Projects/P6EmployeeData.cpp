@@ -13,6 +13,12 @@ public:
         employees = vector<Employee *>();
     }
 
+    ~EmployeeDataV2() {
+        for (int i = 0; i < employees.size(); i++) {
+            delete employees[i];
+        }
+    }
+
     void organizeData() {
         readHoursFromFile();
         calculateTotalHours();
@@ -31,6 +37,7 @@ private:
         {
         }
     };
+    
     void readHoursFromFile() {
         ifstream fin;
         fin.open("empdata4.txt");

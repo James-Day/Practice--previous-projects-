@@ -2,6 +2,7 @@
 #include <cstdlib>
 #include <time.h>
 #include <fstream>
+#include <crtdbg.h>
 
 #include "LW1.cpp"
 #include "LW1.5.cpp"
@@ -86,7 +87,7 @@ int main() {
     LWEleven lecture11Ass = LWEleven();
     lecture11Ass.test();
     */
-
+    
     cout << endl << "Program #1" << endl;
     ChangeMachine machineOne = ChangeMachine();
    // machineOne.test();
@@ -95,6 +96,7 @@ int main() {
     DiceGame diceGameOne = DiceGame();
     //diceGameOne.playGame();
 
+    
 
     cout << endl << "Program 2.5" << endl;
     NumberDiamond numberDiamondOne = NumberDiamond();
@@ -110,11 +112,15 @@ int main() {
     WordLengthCounter WordCounterOne = WordLengthCounter();
     //WordCounterOne.test();
 
+    {
     cout << endl << "Program 5" << endl;
     EmployeeData employeeDataOne = EmployeeData();
     employeeDataOne.organizeData();
 
+    
     cout << endl << "Program 6" << endl;
     EmployeeDataV2 employeeDataTwo = EmployeeDataV2();
-    employeeDataTwo.organizeData();
+     employeeDataTwo.organizeData(); 
+    }
+    _CrtDumpMemoryLeaks(); //no memory leak for program #6 (and technically program 5 because it uses vectors.)
 }
