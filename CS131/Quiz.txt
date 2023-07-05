@@ -1,0 +1,20 @@
+Quiz #1 //unimportant
+Quiz #2
+1) What are 2 of the 3  "rules"/behavior for the extraction operator.  
+	1. it will consume all white space including space, tab, and new lines
+	2. it will also read as much as it possibly can into a variable
+	3. if a stream becomes corrupted (wrong data type) then all future 
+	extractions (reads) will be skipped
+
+2) What are the rules for making a legal variable name?
+ 1. a-z, A-Z
+ 2. Underscores, 
+ 3. Digits 0-9
+
+Quiz #3
+Quiz #4
+Quiz #5
+Quiz #6
+Quiz #7
+Quiz #8
+Quiz #9
