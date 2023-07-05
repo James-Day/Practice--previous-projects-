@@ -12,9 +12,179 @@ Quiz #2
  3. Digits 0-9
 
 Quiz #3
+1) Describe the problem with floating point numbers.
+	float is ~7 digits of percision and double is 15,
+	because floating point numbers are stored in binary it is impossible to
+	store certain decimals.
+
+2) What is the concept of Short Circuit Evaluation?
+	ex: if(a != nullptr && a->size = 5). Short circuit evaluation
+	means that we will check the first condition and if it is not true
+	then the second condition does not need to be checked, this is useful
+	for pointers to check for nullptr before accesing them (just makes code look cleaner)
+
+3)  What are the  function names that we use to set up and get the random numbers?  We would want a different series of numbers for each run of the program.
+	#include <cstdlib> - libary includes rand functions
+	rand() - returns a random integer in the range of 0 to RAND_MAX (32,767)
+	srand(SEED) - produces a new sequence with a given seed, this allows for testing repeatidly with the same random outputs
+
+4) Draw the flow chart for a While loop.
+
+|----<bool expression>--- (false)
+|			|(true)	    |
+|			|			|
+|			|			|
+|			|			|
+|	   [Code Block]	    |
+|			|			|
+------------			|
+					 (exit)
 Quiz #4
+1) If you had a double called d, give the code to force the display/output of d to show its value with 3 decimal places after the decimal point.
+
+cout << fixed << setprecision(3);
+cout << d << endl;
+
+2) If you have a loop that allows the input of an int, and you want to output these ints as a column as they are being read in, how would you do this?
+int x = 0;
+while(true) { // infinite
+	cin >> x;
+	cout << x << endl;
+}
+
+3) What  are  the 4 key words used in switch statements.
+	Switch(){} - keyword to begin the switch statement. The variable given in the parenthesis is the variable that will be checked for each case
+	case 'x': - Checks if the given variable is that case and performs a certain block of code if it is.
+	break; -stops checking the following switch cases and exits out of the switch statement
+	default: The default code that will be run at the end of the switch statement. If breaks are used in every case, then the default will only run if none of the cases apply.
+
 Quiz #5
+1) If we are creating a function, where would the needed part go in the following.  You don't need to write the function.   You only need to name the parts are where they go.
+
+#include <....>
+
+void func(); //function prototype 
+
+int main ( ) {
+
+ func() //function call
+
+}
+
+ void func(){ // func definition
+ ....
+ }
+
+2)  Give me three of the facts/rules about parameters (we went over 5 of them)
+1. Parameter variables are created when the functions is called and are initialized with the value of the argument
+2. Changes to parameter variables fo not affect the argument (pass by value)
+3. New parameter variables are created for every function call
+4. Parameter variable names are only known within its function (scope)
+5. Parameter variables cease to exist when the function completes
+
 Quiz #6
+1) What does pass by reference allow us to do?
+ creates a second name for a variable (alias) this means that when changing the variable within the function, we 
+ will be changing the variable outside of the function sense they are refering to the same memory location.
+
+2) What is the concept of function overloading?
+same function name for different types for example finding the minimum of int, or double. (could also use template)
+(must have different number of parameters or different types of parameters)
+3) What is the concept of scope ?
+When a variable is available for use (2 types of scope local(within a block) or global outside of a block).
+
+4)  What is a default parameter, and where is it set?
+default parameter is what a parameter in a function will be set to if a argument is not passed in. It is set in the function 
+prototype and all default parameters must be to the right of any non default parameters
+
 Quiz #7
+There is a file called infile.txt that is filled with integers separated by spaces.
+Write the code to that would be needed to do the proper things when reading from a file, and read all 
+the integers from the file and then write them one per line to the console window.
+#include <iostream>
+#include <fstream>
+using namespace std;
+ int main(){
+	 ifstream fin;
+	 fin.open(infile.txt)
+	 if(fin.fail()){
+		cout << "error"
+		exit(1);
+	 }
+	 while(!fin.eof()){
+	 int next = 0;
+		fin >> next; //assuming good inputs
+		cout << next << endl;
+	 }
+	 fin.close();
+ }
+
 Quiz #8
+1) Create an integer array that can hold 5 elements and initialize them to the values 6-10.
+    int arr[5] = {6,7,8,9,10};
+
+2) Create a proper function prototype that can take an array of varying sizes.
+void func(int arr[], int size) or void func(int *arr) // could also do this with vectors
+
+3) Give an example of calling the function from question 2 with the array from question 1.
+func(arr, 5);
+
+4) How are arrays passed to functions?
+pass by reference. //really you are passing a pointer to the first element.
+
 Quiz #9
+1) What is the general concept of how a Selection Sort works?
+ on the nth iteration place the nth element in the nth location
+ ex: first find the smallest element, swap with arr[0] then the second smallest, swap with arr[1]
+2) What is the general concept of how  Bubble Sort works?
+loop through the array comparing adjacent pairs of elements and if ther are out of order, swap them. 
+Continue looping until the array is sorted, or n-1 times.
+
+Quiz #10
+1) Write a function prototype that could do the normal things to accept an argument like the following:
+int foo [5] [10];
+void func(int arr[5][10])
+
+2) Give the following array, what are the data type are A and B:
+int bar [2][3][4];
+A) bar[ x ] [ y ]; 1D array
+B)  bar [ z ] 2D array
+
+3) Write a for each loop that will set all the elements in the following array to 42
+ int baz[50];
+ for (int& element : baz) {
+	element = 42;
+ }
+
+Quiz #11
+1) What does resize do?
+changes the size and capacity of the array, and will fill all new elements with the given value. resizing can also delete elements.
+
+2)  What does reserve do?
+changes capacity, not size. So it will reserve more memory but will not initialize the elemetns.
+
+3) What is capacity with regard to vectors?
+capacity is the amount of memory that the vector has reserved, while size is the number of elements being used in the vector.
+
+4) Create an 8x10 vector of integers that has all of its elements initialized to 14.
+vector<vector<int>> multDimVec(8);
+for(vector<int> & vec : multDimVec){
+	vec.resize(10, 14)
+}
+
+Quiz #12
+1) Create an integer variable named num.  Then create a pointer that you use to change the value of num to 13.
+ int num = 0;
+ int* ptr = &num;
+ *ptr = 10;
+
+2)  What is being made constant with the following statement:
+const int * ptr1;
+This is a pointer to a constant integer, so this means that the integer that is being pointed to is constant.
+
+3)  What is being made constant with the following statement:
+int * const ptr2;
+the pointer is being made constant which means that once the pointer is initialized with a memory address, it cannot be changed to point to a different address.
+
+4) What keyword is used to get dynamic memory?
+new. ex: int* dynamicVariable = new int; //needs to be freed later.
