@@ -23,7 +23,7 @@ public:
     static int getCurrentCount();
     static int getCreatedCount();
 
-    void test() {};
+    void test();
 
 private:
     static int createdCount;
